@@ -22,7 +22,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
     </header>
 
     <!-- BUTTON CARDS -->
-    <div id="homepage_container">
+    <div class="page_container">
         <h1 class="title">CONTENT MANAGEMENT</h1>
         <div class="grid-container">
             <!-- Adding content -->

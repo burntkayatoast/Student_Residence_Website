@@ -12,7 +12,7 @@ if (isset($_GET['search'])) {
     $search = $_GET['search'];
 }
 
-// Fetch students and their details
+// Gets students and their details
 $sql = "SELECT 
             s.student_id AS student_id, 
             s.firstname, 
@@ -22,7 +22,8 @@ $sql = "SELECT
             p.amount AS amount_due 
         FROM students s
         LEFT JOIN rooms r ON s.room_id = r.room_id
-        LEFT JOIN payments p ON s.student_id = p.student_id";
+        LEFT JOIN payments p ON s.student_id = p.student_id
+        ORDER BY r.room_number ASC";
 
 if (!empty($search)) {
     $sql .= " WHERE s.student_id LIKE '%$search%'";

@@ -47,9 +47,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <!-- HEADER -->
     <header>
-        <!-- Home button -->
         <a href="homepage.php"><button class="button" role="button">home</button></a>
-        <!-- Logout button -->
         <a href="logout.php"><button class="button" role="button">log out</button></a>
     </header>
 
@@ -58,18 +56,18 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <h1 class="title">Resident Details</h1>
     <div id="form_container">
         <form method="POST" action="add_content.php">
-        <h3>STUDENT DETAILS</h3>
+        <h3>INPUT DETAILS</h3>
             <!-- Input field for residence first name -->
             <label for="firstname">First Name:</label>
-            <input type="text" id="firstname" name="firstname" required><br><br>
+            <input type="text" id="firstname" name="firstname" required><br>
 
             <!-- Input field for residence surname -->
             <label for="lastname">Last Name:</label>
-            <input type="text" id="lastname" name="lastname" required><br><br>
+            <input type="text" id="lastname" name="lastname" required><br>
 
             <!-- Input field for student ID -->
             <label for="studentID">Student ID:</label>
-            <input type="text" id="studentID" name="studentID" required><br><br>
+            <input type="text" id="studentID" name="studentID" required><br>
 
             <!-- Dropdown for room selection -->
             <label for="roomID">Room:</label>
@@ -96,10 +94,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             <!-- Amount Due -->
             <label for="amountDue">Amount Due (€):</label>
-            <input type="number" id="amountDue" name="amountDue" step="1.00" required><br><br>
+            <input type="number" id="amountDue" name="amountDue" step="1.00" required><br><br><br>
 
             <!-- Submit button -->
-            <button type="submit" class="button">Add Resident</button>
+            <button type="submit" class="button" role="button">Add Resident</button>
         </form>
     </div>
     </div>

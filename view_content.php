@@ -57,6 +57,7 @@ $result = $conn->query($sql);
             </form>
 
             <!-- Student List -->
+            <div id="actual-list">
             <div class="student-list">
                 <?php if ($result->num_rows > 0): ?>
                     <?php while ($row = $result->fetch_assoc()): ?>
@@ -82,6 +83,7 @@ $result = $conn->query($sql);
                 <?php else: ?>
                     <p>No students found.</p>
                 <?php endif; ?>
+            </div>
             </div>
         </div>
     </div>

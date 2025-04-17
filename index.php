@@ -33,6 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         } else {
             $error = "Invalid email or password.";
         }
+    } else {
+        $error = "Invalid email or passwOrd.";
     }
 
    // Close connection
@@ -59,13 +61,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <br>
             <!-- Input field for password -->
             <input type="password" id="password" name="password" placeholder="password" required>
-            <br><br>
+            <br>
             <!-- Error message if there's an error with input fields -->
             <?php if (isset($error)): ?>
             <p style="color: red; font-size: 14px;"><?php echo $error; ?></p>
             <?php endif; ?>
             <br>
-            
             <button type="submit" class="button">Login</button>
         </form>
    </div>

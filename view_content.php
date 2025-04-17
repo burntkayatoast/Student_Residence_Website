@@ -6,7 +6,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
    exit;
 }
 
-// Handle search functionality
+// Handles search functionality
 $search = '';
 if (isset($_GET['search'])) {
     $search = $_GET['search'];
@@ -25,6 +25,7 @@ $sql = "SELECT
         LEFT JOIN payments p ON s.student_id = p.student_id
         ORDER BY r.room_number ASC";
 
+// adds a WHERE clause to filter the results
 if (!empty($search)) {
     $sql .= " WHERE s.student_id LIKE '%$search%'";
 }
@@ -53,6 +54,7 @@ $result = $conn->query($sql);
         <div id="list-container">
              <!-- Search Bar -->
             <form method="GET" action="view_content.php" class="search_bar">
+                <!-- Input field for search -->
                 <input type="text" name="search" placeholder="Search Student ID" value="<?php echo htmlspecialchars($search); ?>">
                 <button type="submit"><i class="gg-search"></i></button>
             </form>
@@ -60,9 +62,11 @@ $result = $conn->query($sql);
             <!-- Student List -->
             <div id="actual-list">
             <div class="student-list">
+                <!-- Loops through the results and displays each student in the DB -->
                 <?php if ($result->num_rows > 0): ?>
                     <?php while ($row = $result->fetch_assoc()): ?>
                         <div class="student-item">
+                            <!-- Displays the deets -->
                             <div class="student-details">
                                 <p><strong>Student ID:</strong> <?php echo $row['student_id']; ?></p>
                                 <p><strong>Student Name:</strong> <?php echo $row['firstname']; echo ' '; echo $row ['lastname']; ?> </p>
@@ -71,9 +75,11 @@ $result = $conn->query($sql);
                                 <p><strong>Amount Due:</strong> €<?php echo number_format($row['amount_due'] ?? 0, 2); ?></p>
                             </div>
                             <div class="actions">
+                                <!-- Edit button -->
                                 <a href="edit_student.php?student_id=<?php echo $row['student_id']; ?>" title="Edit">
                                     <i class="gg-pen"></i> Edit
                                 </a>
+                                <!-- Delete button -->
                                 <a href="delete_student.php?student_id=<?php echo $row['student_id']; ?>" title="Delete" onclick="return confirm('Are you sure you want to delete this student?');">
                                     <i class="gg-trash"></i> Delete
                                 </a>
@@ -82,6 +88,7 @@ $result = $conn->query($sql);
                         <hr> <!-- Divider -->
                     <?php endwhile; ?>
                 <?php else: ?>
+                    <!-- Display message if there are no students i nteh DB -->
                     <p>No students found.</p>
                 <?php endif; ?>
             </div>

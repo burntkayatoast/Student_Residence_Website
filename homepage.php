@@ -18,12 +18,12 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 </head>
     <!-- HEADER -->
     <header>
-        <button class="button" role="button"><a href="logout.php">log out</a></button>
+        <a href="logout.php"><button class="button" role="button">log out</button></a>
     </header>
 
     <!-- BUTTON CARDS -->
     <div class="page_container">
-        <h1 class="title">CONTENT MANAGEMENT</h1>
+        <h1 class="title">MANAGEMENT</h1>
         <div class="grid-container">
             <!-- Adding content -->
             <div class="grid-item">
@@ -40,19 +40,19 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
                 </a>
             </div>
             <!-- Editing ccontent -->
-            <div class="grid-item">
+            <!-- <div class="grid-item">
                 <a href="edit_content.php">
                     <h2>[Edit Student Residence]</h2>
                     <p>Edit existing content in the system.</p>
                 </a>
-            </div>
+            </div> -->
             <!-- Deleting content -->
-            <div class="grid-item">
+            <!-- <div class="grid-item">
                 <a href="delete_content.php">
                     <h2>[Delete Student Residence]</h2>
                     <p>Remove content from the system.</p>
                 </a>
-            </div>
+            </div> -->
         </div>
     </div>
 </body>

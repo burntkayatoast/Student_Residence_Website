@@ -95,7 +95,7 @@ input[type="text"], input[type="password"] {
 .grid-container {
     margin-top: -5em;
     display: grid;
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(2, 1fr); 
     gap: 1em;
     padding: 1em;
 }

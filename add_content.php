@@ -99,7 +99,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <input type="number" id="amountDue" name="amountDue" step="1.00" required><br><br>
 
             <!-- Submit button -->
-            <button type="submit" class="button">Next: Payment Details</button>
+            <button type="submit" class="button">Add Resident</button>
         </form>
     </div>
     </div>

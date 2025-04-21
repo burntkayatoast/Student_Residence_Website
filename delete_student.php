@@ -1,7 +1,7 @@
 <?php
 require 'db.php';
 
-// checks if student_id is provided so script runs only id a valid id is passed
+// checks if student_id is provided so script runs if a valid id is passed
 if (isset($_GET['student_id'])) {
     $student_id = $conn->real_escape_string($_GET['student_id']);
 

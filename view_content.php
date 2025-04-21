@@ -22,13 +22,13 @@ $sql = "SELECT
             p.amount AS amount_due 
         FROM students s
         LEFT JOIN rooms r ON s.room_id = r.room_id
-        LEFT JOIN payments p ON s.student_id = p.student_id
-        ORDER BY r.room_number ASC";
+        LEFT JOIN payments p ON s.student_id = p.student_id";
 
 // adds a WHERE clause to filter the results
 if (!empty($search)) {
     $sql .= " WHERE s.student_id LIKE '%$search%'";
 }
+$sql .= " ORDER BY r.room_number ASC";
 
 $result = $conn->query($sql);
 ?>
@@ -45,6 +45,7 @@ $result = $conn->query($sql);
 <body>
     <!-- HEADER -->
     <header>
+        <h2>Student Residence Management</h2>
         <a href="homepage.php"><button class="button" role="button">home</button></a>
         <a href="logout.php"><button class="button" role="button">log out</button></a>
     </header>

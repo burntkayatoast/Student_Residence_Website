@@ -3,7 +3,7 @@ require 'db.php';
 
 // Check if the user is already logged in
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
-   header("Location: homepage.php");
+   header("Location: homepage.php"); // If logged in, redirects to the homepage
    exit;
 }
 
@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Insert payment details into the payments table if student deets are successful
         $sql_payments = "INSERT INTO payments (student_id, amount, status) VALUES ('$studentID', $amountDue, '$paymentStatus')";
         if ($conn->query($sql_payments) === true) {
-            // If successful, redirects to add_contnt
+            // If noth are successful, redirects to add_contnt page
             header("Location: add_content.php");
             exit;
         } else {
@@ -47,14 +47,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <body>
     <!-- HEADER -->
     <header>
+        <h2>Student Residence Management</h2>
         <a href="homepage.php"><button class="button" role="button">home</button></a>
         <a href="logout.php"><button class="button" role="button">log out</button></a>
     </header>
 
-    <!-- FORM for Student residence detail -->
+    <!-- Page content -->
     <div class="page_container">
     <h1 class="title">Resident Details</h1>
     <div id="form_container">
+        <!-- FORM to add Student residence detail -->
         <form method="POST" action="add_content.php">
         <h3>INPUT DETAILS</h3>
             <!-- Input field for residence first name -->
@@ -77,7 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 // Gets the rooms that are available from the database
                 $result = $conn->query("SELECT room_id, room_number FROM rooms WHERE room_id NOT IN (SELECT room_id FROM students WHERE room_id IS NOT NULL)");
                 while ($row = $result->fetch_assoc()) {
-                    // Available rooms are displayed
+                    // Available rooms are displayed as options
                     echo "<option value='" . $row['room_id'] . "'>Room " . $row['room_number'] . "</option>";
                 }
                 ?>
@@ -92,7 +94,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <option value="overdue">Overdue</option>
             </select><br><br>
 
-            <!-- Amount Due -->
+            <!-- Amount Due field -->
             <label for="amountDue">Amount Due (€):</label>
             <input type="number" id="amountDue" name="amountDue" step="1.00" required><br><br><br>
 

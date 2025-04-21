@@ -14,14 +14,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
    $password = $_POST['password'];
 
    // Checking if the user email exists
-   $stmt = $conn->prepare("SELECT * FROM users WHERE email = ?");
-   $stmt->bind_param("s", $email); // Binds email parameter
-   $stmt->execute(); // Executes the query
-   $result = $stmt->get_result(); // Gets teh result
+   $sql = "SELECT * FROM users WHERE email = '$email'";
+   $result = $conn->query($sql);
 
     if ($result->num_rows === 1) {
         $user = $result->fetch_assoc(); // Gets the result
-
+        // Checks if the password matches the password in teh db
         if ($password === $user['password']) {
             // Set session variables to indicate the user is logged in
             $_SESSION['loggedin'] = true;
@@ -38,7 +36,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
    // Close connection
-   $stmt->close();
    $conn->close();
 }
 ?>
@@ -67,6 +64,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <p style="color: red; font-size: 14px;"><?php echo $error; ?></p>
             <?php endif; ?>
             <br>
+            <!-- submit btn -->
             <button type="submit" class="button">Login</button>
         </form>
    </div>

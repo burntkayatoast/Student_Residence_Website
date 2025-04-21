@@ -4,6 +4,7 @@ $dbname = 'student_residence_DB';
 $username = 'root';
 $password = '';
 
+// Creates connection to the db
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection

@@ -18,6 +18,7 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
 </head>
     <!-- HEADER -->
     <header>
+        <h2>Student Residence Management</h2>
         <a href="logout.php"><button class="button" role="button">log out</button></a>
     </header>
 
@@ -26,19 +27,19 @@ if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
         <h1 class="title">MANAGEMENT</h1>
         <div class="grid-container">
             <!-- Adding content -->
-            <div class="grid-item">
-                <a href="add_content.php">
-                    <h2>[Add Student Residence]</h2>
-                    <p>Add new content to the system.</p>
-                </a>
-            </div>
+            <a href="add_content.php">
+                <div class="grid-item">
+                        <h2>[Add Student Residence]</h2>
+                        <p>Add new content to the system.</p>
+                </div>
+            </a>
             <!-- Viewing content -->
-            <div class="grid-item">
-                <a href="view_content.php">
-                    <h2>[View Student Residence]</h2>
-                    <p>View existing content in the system.</p>
-                </a>
-            </div>
+            <a href="view_content.php">
+                <div class="grid-item">
+                        <h2>[View Student Residence]</h2>
+                        <p>View existing content in the system.</p>
+                </div>
+            </a>
             <!-- Editing ccontent -->
             <!-- <div class="grid-item">
                 <a href="edit_content.php">
